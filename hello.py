@@ -1,4 +1,4 @@
-from flask import Flask #De la librería importo la clase (aplicación)
+from flask import Flask, render_template #De la librería importo la clase (aplicación)
 
 app = Flask(__name__) #__name__ -> Variable que da nombre al fichero. Es una instancia de Flask
 
@@ -19,3 +19,7 @@ def ultimaentrada():
 @app.route("/doble/<int:numero>") #Variable se convierte en parámetro de la función. Solo admite cadenas detrás de doble, compatibles con un entero
 def doble(numero): #Aquí, numero es el parámetro de la función
     return str(numero * 2)
+
+@app.route("/primerhtml")
+def primerhtml():
+    return render_template("hola.html")
